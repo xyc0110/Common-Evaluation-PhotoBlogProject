@@ -40,14 +40,15 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private ImageAdapter adapter;
 
-    private boolean isAscending = false; // ✅ 排序标志位（false=最新在上）
+    private boolean isAscending = false; //  排序标志位（false=最新在上）
 
     private static final boolean USE_SOCKET_SERVER = false;
 
-    private static final String DJANGO_BASE_URL = "http://10.0.2.2:8000";
+    private static final String DJANGO_BASE_URL = "https://xiayucheng.pythonanywhere.com";
     private static final String DJANGO_API_PATH = "/api_root/Post/";
-    private static final String SOCKET_BASE_URL = "http://10.0.2.2:8081/";
+    private static final String SOCKET_BASE_URL = "https://xiayucheng.pythonanywhere.com"; // 如果 socket 没用可以留空
     private static final String TOKEN = "4988a3d8f97982de343af1b4f41550088b123d44";
+
 
     private ActivityResultLauncher<Intent> imagePickerLauncher;
 
@@ -62,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         adapter = new ImageAdapter(this, new ArrayList<>());
         recyclerView.setAdapter(adapter);
 
-        // ✅ 정렬按钮点击事件
+        //  정렬按钮点击事件
         Button btnSort = findViewById(R.id.btn_sort);
         btnSort.setOnClickListener(v -> toggleSortOrder());
 

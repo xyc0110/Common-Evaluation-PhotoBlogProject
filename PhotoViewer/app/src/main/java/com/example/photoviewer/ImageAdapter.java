@@ -43,10 +43,10 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> 
         Bitmap bitmap = bitmapList.get(position);
         holder.imageView.setImageBitmap(bitmap);
 
-        // ✅ 点击放大功能
+        //  点击放大功能
         holder.imageView.setOnClickListener(v -> showFullScreenImage(bitmap));
 
-        // ✅ 点击保存按钮：将图片保存到系统相册
+        //  点击保存按钮：将图片保存到系统相册
         holder.btnSave.setOnClickListener(v -> {
             saveImageToGallery(bitmap);
             Toast.makeText(context, "이미지가 갤러리에 저장되었습니다!", Toast.LENGTH_SHORT).show();
@@ -69,7 +69,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> 
         notifyDataSetChanged();
     }
 
-    // ✅ 全屏查看
+    //  全屏查看
     private void showFullScreenImage(Bitmap image) {
         Dialog dialog = new Dialog(context, android.R.style.Theme_Black_NoTitleBar_Fullscreen);
         dialog.setContentView(R.layout.dialog_fullscreen_image);
@@ -80,7 +80,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> 
         dialog.show();
     }
 
-    // ✅ 保存图片到相册
+    //  保存图片到相册
     private void saveImageToGallery(Bitmap bitmap) {
         try {
             ContentResolver resolver = context.getContentResolver();
@@ -101,7 +101,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> 
         }
     }
 
-    // ✅ ViewHolder
+    //  ViewHolder
     public static class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imageView;
         Button btnSave;
