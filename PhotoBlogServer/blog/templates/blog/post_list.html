@@ -1,0 +1,19 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+  {% for post in posts %}
+    <div class="post">
+        <div class="date">
+            <p>published: {{ post.published_date }}</p>
+        </div>
+        <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+        <p>{{ post.text|linebreaksbr }}</p>
+
+        
+        {% if post.image %}
+          <img src="{{ post.image.url }}" alt="{{ post.title }}" class="rounded intruder-image-list">
+        {% endif %}
+    </div>
+  {% endfor %}
+{% endblock %}
+
